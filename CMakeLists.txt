@@ -19,6 +19,8 @@ set(PROJECT_SOURCES
         src/mainwindow.cpp
         include/mainwindow.h
         src/mainwindow.ui
+        src/calculator.cpp
+        include/calculator.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -45,6 +47,7 @@ else()
 endif()
 
 target_link_libraries(RPN-Calculator PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_include_directories(RPN-Calculator PRIVATE include)
 
 set_target_properties(RPN-Calculator PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com

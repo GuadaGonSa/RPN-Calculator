@@ -13,3 +13,18 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+void MainWindow::on_btn_enter_clicked()
+{
+    QString texto = ui->pantalla->text();
+    if (!texto.isEmpty()) {
+        bool ok;
+        double valor = texto.toDouble(&ok);
+        if (ok) {
+            m_engine.pushOperand(valor);
+            ui->pantalla->clear();
+            updateStackView();
+        }
+    }
+}
+
